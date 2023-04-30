@@ -80,52 +80,57 @@ These files (in alphabetical order) are products of many of the screencasts pres
 
 Assumptions/Premises
 
-- User will always place names and SID in first 2 columns, and we’ll assume that those will never be misspelled.
-- New assignment headings/labels will always be placed in the top row.
+- User will always place names and SID in **first 2 columns**, and we’ll assume that those will never be misspelled.
+- New assignment headings/labels will always be placed in the **top row.**
 - TAs will be able to modify their individual sheets and these will overwrite existing data.
 - Lab sections will always be in increments of 1 and continuous (no gaps).
-- Grades will always be on Sheet1 of the roster files
+- Grades will always be on **Sheet1** of the roster files
 - No new students will need to be added
 
 
 
 More details
 
-1. (INITIALIZATION) From the START PAGE, clicking on the button will create a new course, which involves the following (see introductory screencast for a demonstration):
+1. (INITIALIZATION) From the **START PAGE**, clicking on the button will create a new course, which involves the following (see introductory screencast for a demonstration):
 
-- You should create a file called “Grade Manager – SETUP.xlsm” that will perform the tasks below.  There are only 2 files that the teacher needs to set up the course: 1) “Grade Manager – SETUP.xlsm” and 2) the course roster.  These are the two files that your reviewers (other learners) will start with when they peer review your project.
-- Ask the user for the name of the course (e.g., “ECON 1001”) and creates a new directory (folder) for this course
-- Asks the user to navigate to and select the preexisting folder where the new directory will be placed
-- Saves the file as something like “Grade Manager ECON 1001.xlsm” (NOTE: The “Grade Manager – SETUP.xlsm” file should therefore be unchanged, and can be used again for a different course.)
-- The START PAGE should be deleted (record a macro for how this is done, you may want to use Application.DisplayAlerts = False)
-- The file path should be placed on the “Path” sheet of the main file, and this sheet should be hidden (you can start with it hidden; the subroutine does not need to hide it as long as it starts hidden)
-- Asks the user to navigate to the roster file (in the correct format) for the course, which will then be imported into the “Roster” sheet of the Grade Manager.
-- Individual section files will then be created in a sub directory of the directory in which the Grade Manager file exists (these files might exist in a folder named something like “Section Rosters” or “Section Files”); the students are separated by section number into the section files.
-- IMPORTANT: Both the A and B columns (name and SID numbers) should be imported into the section grade files!
-- You will need to do some tweaking around with the numbers in the CreateSection subroutine (HINT: You might want to iterate from minSection to maxSection for index i instead of 1 to nSections in the For… Next loops)
-- Each of the section files is then formatted; the user (teacher) can decide which assignments to add to each of the sheets
-- This is the end of the initialization process
+- You should **create a file** called “**Grade Manager – SETUP.xlsm**” that will perform the tasks below.  There are only 2 files that the teacher needs to set up the course: 
+  - 1. “Grade Manager – SETUP.xlsm” and 
+    2. the course roster.  
+  - These are the two files that your reviewers (other learners) will start with when they peer review your project.
+
+- **(DONE)** Ask the user for the name of the course (e.g., “**ECON 1001**”) and creates a new directory (folder) for this course
+- **(DONE)** Asks the user to navigate to and select the preexisting folder where the new directory will be placed
+- **(DONE)** Saves the file as something like “**Grade Manager ECON 1001.xlsm**” (NOTE: The “Grade Manager – SETUP.xlsm” file should therefore be unchanged, and can be used again for a different course.)
+- **(DONE)** The **START PAGE should be deleted** (record a macro for how this is done, you may want to use Application.DisplayAlerts = False)
+- **(DONE)** The **file path** should be placed on the “Path” sheet of the main file, and this sheet should **be hidden** (you can start with it hidden; the subroutine does not need to hide it as long as it starts hidden)
+- **(DONE)** Asks the user to navigate to the roster file (in the correct format) for the course, which will then be imported into the “Roster” sheet of the Grade Manager.
+- **(DONE)** Individual section files will then be created in a sub directory of the directory in which the Grade Manager file exists (these files might exist in a folder named something like “**Section Rosters**” or “Section Files”); the students are separated by section number into the section files.
+- **(DONE)** IMPORTANT: Both the A and B columns (name and SID numbers) should be imported into the section grade files!
+- **(DONE)** You will need to do some tweaking around with the numbers in the CreateSection subroutine (HINT: You might want to iterate from minSection to maxSection for index i instead of 1 to nSections in the For… Next loops)
+- **(DONE)** Each of the section files is then **formatted**; the user (teacher) can decide which **assignments** to add to each of the sheets
+- **(DONE)** This is the end of the initialization process
 
 
 
 2. (SYNCING) TAs should then be able to add grades to their individual section grade files.  When needed, the teacher can import grades from the section files into the main Grade Manager file (this is known as syncing).  Syncing involves the following:
 
-- Importing the first column of the files (the assignment headings) – this is necessary because adding grade items (see below) will change the headings in the section files but NOT in the main Grade Manager.
-- Grades from the individual students will be transferred, matched up with, and placed into the corresponding row in the main Grade Manager file.
-- Any preexisting data will be overwritten without warning (you can add warnings if you wish, but this is not a requirement).
+- **(DONE)** Importing the first column of the files (the assignment headings) – this is necessary because adding grade items (see below) will change the headings in the section files but NOT in the main Grade Manager.
+- **(DONE)** Grades from the individual students will be transferred, matched up with, and placed into the corresponding row in the main Grade Manager file.
+- **(DONE)** Any preexisting data will be overwritten without warning (you can add warnings if you wish, but this is not a requirement).
 
 
 
-3. (BACKUP)  You should have the ability to back up your roster file and your program should save the file as a new name that includes the current date (e.g., “Grade_Manager_ECON_1001_2-18-2018.xlsm” or similar).
-4. (ADD GRADE ITEM)  Your Grade Manger must have the capability to add new grade items (columns) but it doesn’t need to be able to add students.
+3. **(BACKUP)**  You should have the ability to back up your roster file and your program should save the file as a new name that includes the current date (e.g., “Grade_Manager_ECON_1001_2-18-2018.xlsm” or similar).
+4. **(ADD GRADE ITEM)**  Your Grade Manger must have the capability to add new grade items (columns) but it doesn’t need to be able to add students.
 
-- If a new grade item is added, then your file should place the new column in the proper place in all of the section files (but not the central Grade Manager project – that will be updated during the next sync).
-- (DELETE GRADE ITEM)  Your Grade Manager project needs to be able to delete columns of data from all sheets.  I have not provided a screencast for doing this, but in Week 4 of Part 2 of the course, you will have done something similar.  Also, the deleting columns is very similar to (but much easier than) the Add Grade Item portion (above).
-- (SEARCH AND REPLACE) Finally, your Grade Manager must have a search/replace tool that does the following
+- **(DONE)** If a new grade item is added, then your file should place the new column in the proper place in all of the section files (but not the central Grade Manager project – that will be updated during the next sync).
+- **(DONE)** (DELETE GRADE ITEM)  Your Grade Manager project needs to be able to delete columns of data from all sheets.  I have not provided a screencast for doing this, but in Week 4 of Part 2 of the course, you will have done something similar.  Also, the deleting columns is very similar to (but much easier than) the Add Grade Item portion (above).
 
-- Allows the teacher to select the student from a drop-down list (combo box) as well as an assignment of interest (also selected from a combo box), and the program should display that grade.
-- Allows the teacher to select the student and assignment and replace the current grade with a new/updated score.
-- IMPORTANT:  I did not show you this in any of the screencasts, but if the teacher changes a score in the main Grade Manager file, the program also needs to make that change to the individual roster grade sheet.  You will need to come up with a solution for this part!
+5. (SEARCH AND REPLACE) Finally, your Grade Manager must have a search/replace tool that does the following
+
+- **(DONE)** Allows the teacher to select the student from a drop-down list (combo box) as well as an assignment of interest (also selected from a combo box), and the program should display that grade.
+- **(DONE)** Allows the teacher to select the student and assignment and replace the current grade with a new/updated score.
+- **IMPORTANT**:  I did not show you this in any of the screencasts, but if the teacher changes a score in the main Grade Manager file, the program also needs to make that change to the individual roster grade sheet.  You will need to come up with a solution for this part!
 
  
 
@@ -134,7 +139,7 @@ Hints
 - When syncing, also import the first row (grade items/labels) in the import.
 - Whenever a combobox is used on a user form, it should be unloaded and not hidden at the end of the subroutine.  Otherwise, duplicate items are added to the comboboxes.
 - When troubleshooting, make sure to delete all preexisting files and folders that you are trying to create; otherwise, you might have an error if you try to write over a preexisting folder or file.
-- All of the code for everything (including user forms) need to be in the “Grade Manager – SETUP.xlsm” file to begin with
+- All of the code for everything (including user forms) need to be in the “**Grade Manager – SETUP.xlsm**” file to begin with
 
  
 
@@ -144,28 +149,28 @@ Things that your user form MUST do for full credit (these are the criteria that 
 
 - (3 pts, 0.5 pt. each) Initialization
 
-​           a.      Course directory created in user-defined location on local computer
+​           a.      **Course directory created in user-defined location on local computer**
 
-​           b.       Roster file correctly imported to main Grade Manager file
+​           b.       **Roster file correctly imported to main Grade Manager file**
 
-​           c.       Section roster files are correctly created and students separated into those sections automatically upon initialization
+​           c.       **Section roster files are correctly created and students separated into those sections automatically upon initialization**
 
-​           d.       User-selected assignments and number of assignments are added successfully and correctly to all of the individual section files
+​           d.       **User-selected assignments and number of assignments are added successfully and correctly to all of the individual section files**
 
-​           e.       Be adaptable to section files with differing number of students (each of the 5 section files have different number of students).
+​           e.       **Be adaptable to section files with differing number of students (each of the 5 section files have different number of students).**
 
-​           f.        Be adaptable to different total number of section files (instead of 5 there may be more).
+​           f.        **Be adaptable to different total number of section files (instead of 5 there may be more).**
 
-- (2 pts) Syncing of grades - When synced/updated, new grades are successfully imported from the individual section files to the main Grade Manager file
-- (1 pt) File backup – There is a way to back up the main file; the backup file has the current date added to the file name.
+- **(2 pts) Syncing of grades - When synced/updated, new grades are successfully imported from the individual section files to the main Grade Manager file**
+- **(1 pt) File backup – There is a way to back up the main file; the backup file has the current date added to the file name.**
 - (2 pts, 1 pt. each)  Search and Replace Tool
 
-​            a.       User is able to search for an individual student by name; names are automatically populated into a drop-down menu (combo box)
+​            a.       **User is able to search for an individual student by name; names are automatically populated into a drop-down menu (combo box)**
 
-​            b.       User is able to search for an individual (drop-down box) and select an assignment, then change that student’s grade on that assignment
+​            b.       **User is able to search for an individual (drop-down box) and select an assignment, then change that student’s grade on that assignment**
 
-- (1.5 pts) Your program should allow the user to add a new column (assignment) using a drop-down menu.  This assignment should be inserted in the correct spot on the grade spreadsheet, should be numbered properly (one more than the previous maximum of that assignment before adding the new column), and should be added to all section files.
-- (0.5 pts.) Your program should allow the user to delete an entire column of information, selected by the user from a drop-down list.  This should make permanent changes to all section files and there should be a confirmation message box before deleting that assignment.
+- **(1.5 pts) Your program should allow the user to add a new column (assignment) using a drop-down menu.  This assignment should be inserted in the correct spot on the grade spreadsheet, should be numbered properly (one more than the previous maximum of that assignment before adding the new column), and should be added to all section files.**
+- **(0.5 pts.) Your program should allow the user to delete an entire column of information, selected by the user from a drop-down list.  This should make permanent changes to all section files and there should be a confirmation message box before deleting that assignment.**
 - You must have quit buttons and reset buttons on all user forms!
 
  
